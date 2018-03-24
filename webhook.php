@@ -1,6 +1,6 @@
 <?php
 
- 	$config = include 'config.env';
+    $config = include 'config.env';
 
     $mensagem = array(
         "text"          =>  "@guilherme mensagem enviada usando PHP :slack:"
