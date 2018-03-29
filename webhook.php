@@ -2,19 +2,26 @@
 
     $config = include 'config.env';
 
+    //envia uma mensgaem de texto simples
+
     $mensagem = array(
         "text"          =>  "@guilherme mensagem enviada usando PHP :slack:"
     );
 
     $data = json_encode($mensagem);
 
-    $ch = curl_init($config['webhook']);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => $data));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $result = curl_exec($ch);
-    curl_close($ch);
+    send_message($data, $config['webhook']);
 
-    print_r($result);
+    
+
+
+    function send_message($message, $webhook){
+    	$ch = curl_init($webhook);
+    	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    	curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => $message));
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    	$result = curl_exec($ch);
+    	curl_close($ch);
+    }
 
 ?>
