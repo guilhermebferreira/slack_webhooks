@@ -1,2 +1,5 @@
 *.env
 .ipynb_checkpoints
+.idea/inspectionProfiles/Project_Default.xml
+
+.idea/
